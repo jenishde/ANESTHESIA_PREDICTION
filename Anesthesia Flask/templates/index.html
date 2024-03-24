@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <!--From https://codepen.io/frytyler/pen/EGdtg-->
+  <head>
+    <meta charset="UTF-8" />
+    <title>Anesthesia Dosage Prediction</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="icon" href="syringe.png" />
+  </head>
+
+  <body>
+
+    <video autoplay muted loop id="video-background">
+      <source src="static/bg.mp4" type="video/mp4">
+    </video>
+  
+ <div class="title">
+    <h1>Anesthesia Dosage Prediction</h1>
+ </div>
+      
+
+      <div class="login">
+         <form action="{{ url_for('predict')}}" method="post">
+          <input
+            type="text"
+            name="male"
+            placeholder="male"
+            required="required"
+            class="Textfield"
+          />
+          <input
+            type="text"
+            name="Weight"
+            placeholder="Weight"
+            required="required"
+            id="Textfield"
+          />
+          <input type="text" name="Age" placeholder="Age" required="required" id="Textfield" />
+
+          <input type="text" name="SBP" placeholder="SBP" required="required" id="Textfield" />
+          <input type="text" name="DBP" placeholder="DBP" required="required" id="Textfield" />
+          <input
+            type="text"
+            name="HeartRate"
+            placeholder="HeartRate"
+            required="required"
+            id="Textfield"
+          />
+
+          <input type="text" name="MAP" placeholder="MAP" required="required" id="Textfield" />
+          <input
+            type="text"
+            name="Oxygen_saturation"
+            placeholder="Oxygen_saturation"
+            required="required"
+            id="Textfield"
+          />
+          <input
+            type="text"
+            name="Timestamp"
+            placeholder="Timestamp"
+            required="required"
+            id="Textfield"
+          /> <br/>
+
+          <button type="submit" class="btn btn-primary btn-block btn-large">
+            Predict
+          </button>
+        </form>
+
+        <br />
+        <br />
+        {{ prediction_text }}
+      </div>
+    </div>
+  </body>
+</html>
